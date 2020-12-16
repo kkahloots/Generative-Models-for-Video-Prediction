@@ -1,10 +1,40 @@
 # Generative-Models-for-Video-Prediction
 Utilize multiple model architectures to improve sharpness in video prediction
 
-## Model Structure
+# Introduction
+Unsupervised frame prediction of videos is a promising direction of study due to the abundance of available data. 
+This project entails the problem of frame prediction. 
+There exists a significant difference from pure image reconstructions since the models needs to be much more accurate 
+to be able to predict future frames as well as learn the correct correlation of changes within the image sequences.
+The project thus focuses on predicting frames directly in pixel space and tries to address some of the possible problems.
+This project encapsulates various model and loss combinations to deal with degrading image sharpness over long term 
+predictions. Many different solutions to this problem is explored utilizing GANs and LSTM based 
+approaches. The proposed solution to the problem is to combine different model structure and losses to achieve greater 
+results in pixel space. The project discusses the baseline models as well as the introduced combined ones in detail. The 4 
+novel combined models are depicted as various Adversarial models. 
 
+This project gives an overview of scientific advances covering future frame prediction and proposes a LSTM and Adversarial
+based model which utilizes techniques from Computer Vision networks. The presented
+architecture is based on the recurrent encoder-decoder framework with convolutional and dense
+cells, which allows the preservation of spatio-temporal data correlations.
+This project focuses on future frame predictions with mainly future quality in mind. The project includes references to past 
+works experiments on proposed models using Atari data-sets. 
+The most successful models described in this project are Convolutional LSTM Variational Autoencoder and Generative Inference
+Adversarial Convolutional Autoencoder. During experiments both of these models performed comparably better
+than the baseline model for this project "Multi-Scale GAN [1]", thus it can be said that the project was able to
+reach similar results to the state of the art in this task. Their performance and some potential shortcomings are
+discussed extensively in [Evaluation](#evaluation) section (below) of the project.
+
+
+## Model Structure
+Below proposed composite models and main base models from which 
+proposed composite models are made of are described. In each header depicting the 
+individual model there is a visual representation (Figure) with accurate 
+layer names and dimensions. In all of the models described in the following headers, as an 
+optimizer Rectified Adam [2] is used due to its performance benefits and fast 
+convergence rate.
 ### Convolutional Autoencoder (C-AE) 
-![CONV_AE](./PlotNeuralNetModels/pdf2png/CONV_AE/CONV_AE-1.png?raw=true "title")
+![CONV_AE](./PlotNeuralNetModels/pdf2png/CONV_AE/CONV_AE-1.png)
 
 ### Convolutional Variational Autoencoder (C-VAE)
 ![CONV_VAE](./PlotNeuralNetModels/pdf2png/CONV_VAE/CONV_VAE-1.png?raw=true "title")
@@ -48,7 +78,7 @@ Utilize multiple model architectures to improve sharpness in video prediction
 
 
 ## Datasets
-Atari Datasets [11] originally intended for RNN(Recurrent Neural Network)usage, consists of recorded game play of 5 old Atari console games. This Thesis uses all 5 of them on different models as well as on 2 reference works as baselinefor the models. Below are some details and samples from all 5 games.
+Atari Datasets [3] originally intended for RNN(Recurrent Neural Network)usage, consists of recorded game play of 5 old Atari console games. This Thesis uses all 5 of them on different models as well as on 2 reference works as baselinefor the models. Below are some details and samples from all 5 games.
 * Ms. Pacman : 1172401 training images 381757 validation images (a)
 * Video Pinball : 901479 training images 295328 validation images (b)
 * Q*bert : 1124726 training images 360062 validation images (c)
@@ -57,8 +87,16 @@ Atari Datasets [11] originally intended for RNN(Recurrent Neural Network)usage, 
 
 ![Pacman](./PlotNeuralNetModels/dataset_samples/Pacman.png?raw=true "title") ![Pinball](./PlotNeuralNetModels/dataset_samples/Pinball.png?raw=true "title") ![Qbert](./PlotNeuralNetModels/dataset_samples/Qbert.png?raw=true "title") ![Revenge](./PlotNeuralNetModels/dataset_samples/Revenge.png?raw=true "title") ![Spaceinvaders](./PlotNeuralNetModels/dataset_samples/Spaceinvaders.png?raw=true "title")
 
-## Results 
-Notebooks Currently hosted on Google Colab for testing purposes. In order to retrain the best models on the datasets. Please click the "Open in colab" icon and copy the notebook to run the code used in the notebooks are open source 
+# Evaluation 
+Below are some of the results from experiments on Atari datasets using the models described in this work.
+For demonstration purposes, some notebooks from the proposed models are prepared, linked below beside the results.
+Notebooks are currently hosted on Google Colaboratory for testing purposes. In order to retrain the best models on the datasets.
+Please click the "Open in colab" icon and copy the notebook to run the code used in the notebooks are open source.
+Using GPU env is suggested since some trainings took ~30 hours.
+
+### Results on Pacman
+[comment]: <> (![Pacman]&#40;./GIFS/original.gif?raw=true "title"&#41;)
+#### Best Results 
 - Pacman
      - C-GIA-AE
        [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
@@ -67,41 +105,6 @@ Notebooks Currently hosted on Google Colab for testing purposes. In order to ret
        [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
        )](https://colab.research.google.com/drive/1DqcxfpD4ya6eT_7XO69fVM9Gy6rhikj_#offline=true&sandboxMode=true)
        
-- Pinball
-     - C-GIA-AE
-       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
-    )](https://colab.research.google.com/drive/1ZsFM18WAL_JgXPK3Gm0hKqY9E1k9rbTA#offline=true&sandboxMode=true)
-     - C-LSTM-VAE
-       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
-       )](https://colab.research.google.com/drive/1fGICc07-HJ4oQh9C2cjlwlKLpjPLlk8y#offline=true&sandboxMode=true)
-       
-- Q*bert
-     - C-GIA-AE
-       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
-    )](https://colab.research.google.com/drive/1E0RzzvBlG5uh2G6ADJkNNamx-_sk9LG3#offline=true&sandboxMode=true)
-     - C-LSTM-VAE
-       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
-       )](https://colab.research.google.com/drive/1pxPQuvcPe5GeFtHdoIUEpSwLEnNkI_WN#offline=true&sandboxMode=true)
-       
-- Montezuma’s Revenge
-     - C-GIA-AE
-       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
-    )](https://colab.research.google.com/drive/1jhqtOFqWL-4cbHLr4xnwTsT17C5sbsSg#offline=true&sandboxMode=true)
-     - C-LSTM-VAE
-       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
-       )](https://colab.research.google.com/drive/1KfmzpITMH8USwjObSMVhIQ-6cfectYi_#offline=true&sandboxMode=true)
-       
-- Space Invaders
-     - C-GIA-AE
-       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
-    )](https://colab.research.google.com/drive/1IM4toZY-3UcxanZMsoc8KcGKScE4AbDB#offline=true&sandboxMode=true)
-     - C-LSTM-VAE
-       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
-       )](https://colab.research.google.com/drive/1fYjIDsAOwo0mlfbtRD26lFcZ9RFK6K3j#offline=true&sandboxMode=true)
-
-### Results on Pacman
-[comment]: <> (![Pacman]&#40;./GIFS/original.gif?raw=true "title"&#41;)
-#### Best Results 
 <table>
   <tr>
      <td>Ground Truth</td>
@@ -177,6 +180,14 @@ Notebooks Currently hosted on Google Colab for testing purposes. In order to ret
  </table>
 
 ### Results on Pinball
+- Pinball
+     - C-GIA-AE
+       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
+    )](https://colab.research.google.com/drive/1ZsFM18WAL_JgXPK3Gm0hKqY9E1k9rbTA#offline=true&sandboxMode=true)
+     - C-LSTM-VAE
+       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
+       )](https://colab.research.google.com/drive/1fGICc07-HJ4oQh9C2cjlwlKLpjPLlk8y#offline=true&sandboxMode=true)
+     
 <table>
   <tr>
      <td>Ground Truth</td>
@@ -191,6 +202,14 @@ Notebooks Currently hosted on Google Colab for testing purposes. In order to ret
  </table>
 
 ### Results on Q*bert
+- Q*bert
+     - C-GIA-AE
+       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
+    )](https://colab.research.google.com/drive/1E0RzzvBlG5uh2G6ADJkNNamx-_sk9LG3#offline=true&sandboxMode=true)
+     - C-LSTM-VAE
+       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
+       )](https://colab.research.google.com/drive/1pxPQuvcPe5GeFtHdoIUEpSwLEnNkI_WN#offline=true&sandboxMode=true)
+       
 
 <table>
   <tr>
@@ -207,6 +226,14 @@ Notebooks Currently hosted on Google Colab for testing purposes. In order to ret
 
 ### Results on Montezuma’s Revenge
 
+- Montezuma’s Revenge
+     - C-GIA-AE
+       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
+    )](https://colab.research.google.com/drive/1jhqtOFqWL-4cbHLr4xnwTsT17C5sbsSg#offline=true&sandboxMode=true)
+     - C-LSTM-VAE
+       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
+       )](https://colab.research.google.com/drive/1KfmzpITMH8USwjObSMVhIQ-6cfectYi_#offline=true&sandboxMode=true)
+       
 <table>
   <tr>
      <td>Ground Truth</td>
@@ -222,6 +249,14 @@ Notebooks Currently hosted on Google Colab for testing purposes. In order to ret
 
 ### Results on Space Invaders
 
+- Space Invaders
+     - C-GIA-AE
+       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
+    )](https://colab.research.google.com/drive/1IM4toZY-3UcxanZMsoc8KcGKScE4AbDB#offline=true&sandboxMode=true)
+     - C-LSTM-VAE
+       [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg
+       )](https://colab.research.google.com/drive/1fYjIDsAOwo0mlfbtRD26lFcZ9RFK6K3j#offline=true&sandboxMode=true)
+
 <table>
   <tr>
      <td>Ground Truth</td>
@@ -236,14 +271,13 @@ Notebooks Currently hosted on Google Colab for testing purposes. In order to ret
  </table>
 
 
-### Overall 
-
-
+## Overall guide
 ### Installation instructions required packages
 Requirements: **Tensorflow, Keras, Colorlog, Pillow, Tensorflow-probabilities, Jupyter-notebooks**
 
 Google Colaboratory examples given above.
-Downloading datasets : 
+
+Downloading datasets for local use: 
 
     - Linux based systems:  Script_dir = 'data'+sep_local+'download_atari_datasets.sh'
                             Script call to download using dataset_name 
@@ -256,20 +290,4 @@ Downloading datasets :
 
 [2] L. Liyuan, J. Haoming, H. Pengcheng, C. Weizhu, L. Xiaodong, G. Jian-feng, and H. Jiawei, “On the variance of the adaptive learning rate andbeyond,”ICLR 2019, April. 2019.
 
-[3] A. Kar, “Future image prediction using artificial neural networks.,”book,2012.
-
-[4] N. K. Verma, “Future image frame generation using artificial neural networkwith selected features.,”AIPR., Oct. 2012.
-
-[5] N. Srivastava, E. Mansimov, and R. Salakhutdinov., “Unsupervised learningof video representations using lstms.,”ICML., 2015.
-
-[6] X. Shi, Z. Chen, H. Wang, and D.-Y. Yeung., “Convolutional lstm network:A machine learning approach for precipitation nowcasting.,”book, 2015.
-
-[7] A. Dosovitskiy and T. Brox, “Generating images with perceptual similaritymetrics based on deep networks.,”ICLR., Feb. 2016.
-
-[8] Z. Wang, E. P. Simonselli, and A. C. Bovik., “Image quality assessment:From error visibility to structural similarity.,”IEEE Trans. Image Process-ing, no. 13.4, pp. 600 – 612, Apr. 2004.
-
-[9] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli, “Multi-scalestructural similarity for image quality assessment.,”IEEE Conference onSignals, Systems and Computers, Nov. 2003.
-
-[10] H. Zhao, O. Gallo, I. Frosio, and J. Kautz, “Loss functions for neural net-works for image processing.,”book, June 2016.
-
-[11] V. Kurin, S. Nowozin, K. Hofmann, L. Beyer, and B. Leibe, “The atarigrand challenge dataset.,”arXiv:1705.10998., 2017.
+[3] V. Kurin, S. Nowozin, K. Hofmann, L. Beyer, and B. Leibe, “The atarigrand challenge dataset.,”arXiv:1705.10998., 2017.
