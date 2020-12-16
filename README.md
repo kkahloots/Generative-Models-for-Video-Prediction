@@ -101,7 +101,7 @@ Notebooks Currently hosted on Google Colab for testing purposes. In order to ret
 
 ### Results on Pacman
 [comment]: <> (![Pacman]&#40;./GIFS/original.gif?raw=true "title"&#41;)
-Best Results 
+#### Best Results 
 <table>
   <tr>
      <td>Ground Truth</td>
@@ -117,7 +117,7 @@ Best Results
   </tr>
  </table>
 
-Worst Results 
+#### Worst Results 
 <table>
   <tr>
      <td>Ground Truth</td>
@@ -131,10 +131,126 @@ Worst Results
   </tr>
  </table>
 
+#### All models 
+
+<table>
+  <tr>
+     <td>Ground Truth</td>
+     <td>FC-AE</td>
+     <td>FC-VAE</td>
+     <td>C-AE</td>
+     <td>C-VAE</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/original.gif" width=80 height=105 /></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/DenseAE.gif" width=80 height=105 ></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/DenseVAE.gif" width=80 height=105 ></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/ConvAE.gif" width=80 height=105 ></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/ConvVAE.gif" width=80 height=105 ></td>
+  </tr>
+
+  <tr>
+     <td>Ground Truth</td>
+     <td>C-LSTM-AE</td>
+     <td>C-LSTM-VAE</td>
+     <td>C-TD-AE</td>
+     <td>C-TD-VAE</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/original.gif" width=80 height=105 /></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/ConvLSTMAE.gif" width=80 height=105 ></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/ConvLSTMVAE.gif" width=80 height=105 ></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/TimeDistAE.gif" width=80 height=105 ></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/TimeDistVAE.gif" width=80 height=105 ></td>
+  </tr>
+
+  <tr>
+     <td>Ground Truth</td>
+     <td>C-GIA-AE</td>
+     <td>FC-GIA-AE</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/original.gif" width=80 height=105 /></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/ConvGIAAE.gif" width=80 height=105 ></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/DenseGIAAE.gif" width=80 height=105 ></td>
+  </tr>
+ </table>
+
+### Results on Pinball
+<table>
+  <tr>
+     <td>Ground Truth</td>
+     <td>C-GIA-AE</td>
+     <td>C-LSTM-VAE</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/original_pinball.gif" width=160 height=210 /></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/ConvGIAAE_pinball.gif" width=160 height=210></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/ConvLSTMVAE_pinball.gif" width=160 height=210></td>
+  </tr>
+ </table>
+
+### Results on Q*bert
+
+<table>
+  <tr>
+     <td>Ground Truth</td>
+     <td>C-GIA-AE</td>
+     <td>C-LSTM-VAE</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/original_qbert.gif" width=160 height=210 /></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/ConvGIAAE_qbert.gif" width=160 height=210></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/ConvLSTMVAE_qbert.gif" width=160 height=210></td>
+  </tr>
+ </table>
+
+### Results on Montezuma’s Revenge
+
+<table>
+  <tr>
+     <td>Ground Truth</td>
+     <td>C-GIA-AE</td>
+     <td>C-LSTM-VAE</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/original_revenge.gif" width=160 height=210 /></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/ConvGIAAE_revenge.gif" width=160 height=210></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/ConvLSTMVAE_revenge.gif" width=160 height=210></td>
+  </tr>
+ </table>
+
+### Results on Space Invaders
+
+<table>
+  <tr>
+     <td>Ground Truth</td>
+     <td>C-GIA-AE</td>
+     <td>C-LSTM-VAE</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/original_spaceinvaders.gif" width=160 height=210 /></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/ConvGIAAE_spaceinvaders.gif" width=160 height=210></td>
+    <td><img src="https://github.com/azeghost/Generative-Models-for-Video-Prediction/raw/main/GIFS/other_atari/ConvLSTMVAE_spaceinvaders.gif" width=160 height=210></td>
+  </tr>
+ </table>
+
 
 ### Overall 
 
 
+### Installation instructions required packages
+Requirements: **Tensorflow, Keras, Colorlog, Pillow, Tensorflow-probabilities, Jupyter-notebooks**
+
+Google Colaboratory examples given above.
+Downloading datasets : 
+
+    - Linux based systems:  Script_dir = 'data'+sep_local+'download_atari_datasets.sh'
+                            Script call to download using dataset_name 
+                            !/bin/bash $Script_dir -f $DATA_DOWN_PATH -d $dataset_name
+
+    - Windows based systems:    No script created Manually downloadable from 
+                                https://github.com/yobibyte/atarigrandchallenge
 ## References
 [1] M. Mathieu, C. Couprie, and Y. LeCun., “Deep multi-scale video predictionbeyond mean square error.,”ICLR., Feb. 2016.
 
